@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+PromotiCon
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+          <style type="text/css">
+                 a:link { color: black; text-decoration: none;}
+                 a:visited { color: black; text-decoration: none;}
+                 a:hover { color: blue; text-decoration: underline;}
+             #player {width: 180px;}
+          </style>
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no", user-scalable="yes">
+          <meta name="description" content="Venom audio demo page">
+          <meta name="autor" content="PromotiCon">
+          <title>Venom Demo</title>
+          
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+          <link href="css/styles.css" rel="stylesheet">
+          <link rel="stylesheet" href="css/heading.css">
+          <link rel="stylesheet" href="css/body.css">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" integrity="sha512-3q8fi8M0VS+X/3n64Ndpp6Bit7oXSiyCnzmlx6IDBLGlY5euFySyJ46RUlqIVs0DPCGOypqP8IRk/EyPvU28mQ==" crossorigin="anonymous" />
+      </head>
+
+    <body id="page-top">
+        <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+            <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">PromotiCon</a>
+                <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#esd">Emotion Control</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#zeroshot">Fine-grained Emotion Control</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <header class="masthead bg-white text-left"> 
+            <div class="container d-flex align-items-center flex-column">
+                <h1 class="masthead-heading mb-0">Fine-grained Emotion Controllable Text-to-speech using Natural Language Prompts via VAD-aligned Prompt-Speech Matching</h1>
+		            <p class="pre-wrap lead">&nbsp;</p>
+                <img src="img/venom.png" alt="main" style="max-width: 100%; height: auto;"> 
+                <em>Overall framework of Venom</em><p></p><br>
+            </div>
+        </header>
+
+        <section class="page-section alert-secondary portfolio" id="intro">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Abstract</h2>
+                </div>
+                <div class="divider-custom">
+                    <div class="divider-custom"></div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 ml-auto">
+                        <p class="pre-wrap lead">&nbsp;</p>
+                        <p class="pre-wrap lead">  Text-to-speech (TTS) technologies have substantially  evolved, integrating natural language prompts to provide user-friendly control over speech styles and emotions. However, existing prompt-based TTS systems often rely on basic categorical emotional labels, limiting the  range and depth of expressiveness in synthesized speech. This study introduces Venom, a novel TTS system that leverages valence-arousal-dominance (VAD) values for fine-grained emotional control through natural language prompts. By aligning VAD-based values with maximum likelihood estimation  for prompt-speech matching, Venom ensures that the synthesized speech accurately captures the intended emotional nuances and speaker characteristics. Experimental results reveal that Venom produces emotionally diverse and expressive speech, setting a new standard for emotion-specific speech synthesis. This approach highlights the potential of detailed emotional control to enhance the expressiveness and naturalness of synthesized speech, marking considerable progress in TTS technology.</p>
+	                      <p class="pre-wrap lead">&nbsp;</p>
+	                    </div>
+                    </div>         
+                </div>
+            </div>
+        </section>
+        <style>
+          tr, td {
+            text-align:center;
+          }
+          tr {
+            font-size: 15pt;
+          }
+          td {
+            font-size: 13pt;
+          }
+        </style>
+        
+        <section class="page-section bg-info text-white mb-0" id="esd">	
+            <div class="container">
+              <div class="text-center">
+                <h2 class="page-section-heading d-inline-block text-white">Emotion Control</h2>
+                <p class="pre-wrap lead"> MSP-Podcast </p>
+              </div>
+  
+              <div class="divider-custom divider-light">
+              </div>
+                <div class="row">
+                  <div class="col-lg-12 ml-auto">
+                    <table class="table table-responsive align-content-center" style="background-color: rgba(255, 255, 255, 0.993); border-radius: 20px; width: 100%;">
+                      <!-- <thead><tr>
+                        <th style="width: 10%"> Target Speaker </th>
+                        <th style="width: 28%"> Prompt</th>
+                        <th style="width: 15%"> GT </th>
+                        <th style="width: 15%"> Vocoded </th>
+                        <th style="width: 15%"> Ours </th>
+                        <th style="width: 15%"> Mellotron </th>
+                        <th style="width: 15%"> Fs2+EDM </th>
+                        <th style="width: 1%">  </th>
+                      </tr></thead>     -->
+                      <thead><tr>
+                        <th style="width: 10%"> Target Speaker </th>
+                        <th style="width: 28%"> Prompt</th>
+                        <th style="width: 10%"> Target Speech </th>
+                        <th style="width: 10%">    </th>
+                        <th style="width: 10%"> Synthesized </th>
+                        <th style="width: 10%">    </th>
+                        <th style="width: 10%">    </th>
+                        <th style="width: 1%">  </th>
+                      </tr></thead>   
+                      
+                      <tbody>
+                        <tr>
+                          <td>
+                          <p><strong>0011 </strong></p>
+                            <audio id="player" controls><source src="audio/Real/GT/0011_000035.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                          <p><strong>(Neutral) His speech is flat, free from any emotional undulations. </strong></p>
+                          </td>
+                          <td>
+                            <p><strong>GT </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/GT/0011_000023.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Vocoded </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Vocoded/0011_000023.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                          <p><strong>Venom </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/promoticon/promoticon_0011_000023.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Fs2+EDM </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Mellotron/0011_000023.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>GenerSpeech </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Fs2_edm/0011_000023.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+
+                        <tr><td></td>
+                          <td>
+                          <p><strong>(Angry) He responds with a rapid, high-pitched tone, full of anger. </strong></p>
+                          </td>
+                          <td>
+                            <p><strong>GT </strong></p>
+                              <audio id="player" controls><source src="audio/Emo/GT/0011_000395.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Vocoded </strong></p>
+                              <audio id="player" controls><source src="audio/Emo/Vocoded/0011_000395.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>PromotiCon </strong></p>
+                              <audio id="player" controls><source src="audio/Emo/promoticon/promoticon_0011_000395.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Fs2+EDM </strong></p>
+                              <audio id="player" controls><source src="audio/Emo/Mellotron/0011_000395.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                          <p><strong>GenerSpeech </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Fs2_edm/0011_000395.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+                        
+                        <tr><td></td>
+                          <td>
+                          <p><strong>(Happy) He's absolutely thrilled, his excitement contagious. </strong></p>
+                          </td>
+                          <td>
+                            <p><strong>GT </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/GT/0011_000731.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Vocoded </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Vocoded/0011_000731.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>PromotiCon </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/promoticon/promoticon_0011_000731.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Fs2+EDM </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Mellotron/0011_000731.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                          <p><strong>GenerSpeech </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Fs2_edm/0011_000731.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+
+                        <tr><td></td>
+                          <td>
+                          <p><strong>(Sad) He articulates with a subdued grief, a low, sorrowful tone. </strong></p>
+                          </td>
+                          <td>
+                          <p><strong>GT </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/GT/0011_001092.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Vocoded </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Vocoded/0011_001092.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>PromotiCon </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/promoticon/promoticon_0011_001092.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Fs2+EDM </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Mellotron/0011_001092.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>GenerSpeech </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Fs2_edm/0011_001092.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+
+                        <tr><td></td>
+                          <td>
+                          <p><strong>(Surprise) His speech has a spirited rhythm, lively and full of wonder. </strong></p>
+                          </td>
+                          <td>
+                          <p><strong>GT </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/GT/0011_001433.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Vocoded </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Vocoded/0011_001433.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>PromotiCon </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/promoticon/promoticon_0011_001433.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Fs2+EDM </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Mellotron/0011_001433.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>GenerSpeech </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Fs2_edm/0011_001433.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+                     </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+              
+                <div class="row">
+                  <div class="col-lg-12 ml-auto">
+                    <table class="table table-responsive align-content-center" style="background-color: rgba(255, 255, 255, 0.993); border-radius: 20px">
+                      <thead><tr>
+                        <th style="width: 10%"> Target Speaker </th>
+                        <th style="width: 28%"> Prompt</th>
+                        <th style="width: 10%"> Target Speech </th>
+                        <th style="width: 10%">    </th>
+                        <th style="width: 10%"> Synthesized </th>
+                        <th style="width: 10%">    </th>
+                        <th style="width: 10%">    </th>
+                        <th style="width: 1%">  </th>
+                      </tr></thead>   
+
+                      <tbody>
+                        <tr>
+                          <td>
+                          <p><strong>0016 </strong></p>
+                            <audio id="player" controls><source src="audio/Real/GT/0016_000022.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                          <p><strong>(Neutral) She maintains a steady, neutral voice. </strong></p>
+                          </td>
+                          <td>
+                            <p><strong>GT </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/GT/0016_000032.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Vocoded </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Vocoded/0016_000032.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>PromotiCon </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/promoticon/promoticon_0016_000032.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Fs2+EDM </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Mellotron/0016_000032.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                          <p><strong>GenerSpeech </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Fs2_edm/0016_000032.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+
+                        <tr><td></td>
+                          <td>
+                          <p><strong>(Angry) Her voice is gruff, each word heavier with annoyance. </strong></p>
+                          </td>
+                          <td>
+                          <p><strong>GT </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/GT/0016_000381.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Vocoded </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Vocoded/0016_000381.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>PromotiCon </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/promoticon/promoticon_0016_000381.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Fs2+EDM </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Mellotron/0016_000381.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>GenerSpeech </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Fs2_edm/0016_000381.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+
+                        <tr><td></td>
+                          <td>
+                          <p><strong>(Happy) She sounds elated, her voice bright and lively. </strong></p>
+                          </td>
+                          <td>
+                          <p><strong>GT </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/GT/0016_000745.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Vocoded </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Vocoded/0016_000745.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>PromotiCon </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/promoticon/promoticon_0016_000745.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Fs2+EDM </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Mellotron/0016_000745.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>GenerSpeech </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Fs2_edm/0016_000745.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+
+                        <tr><td></td>
+                          <td>
+                          <p><strong>(Sad) She speaks with a slow, deepening sadness. </strong></p>
+                          </td>
+                          <td>
+                          <p><strong>GT </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/GT/0016_001080.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Vocoded </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Vocoded/0016_001080.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>PromotiCon </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/promoticon/promoticon_0016_001080.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Fs2+EDM </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Mellotron/0016_001080.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>GenerSpeech </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Fs2_edm/0016_001080.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+
+                        <tr><td></td>
+                          <td>
+                          <p><strong>(Surprise) She speaks in a higher register, her voice reflecting her amazement. </strong></p>
+                          </td>
+                          <td>
+                          <p><strong>GT </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/GT/0016_001425.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Vocoded </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Vocoded/0016_001425.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>PromotiCon </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/promoticon/promoticon_0016_001425.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>Fs2+EDM </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Mellotron/0016_001425.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                            <p><strong>GenerSpeech </strong></p>
+                            <audio id="player" controls><source src="audio/Emo/Fs2_edm/0016_001425.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+                     </tbody>
+                    </table>
+                  </div>
+                </div>
+              
+            </div>
+        </section>
+
+        <section class="page-section bg-primary text-white mb-0" id="zeroshot">
+          <div class="container">
+            <div class="text-center">
+              <h2 class="page-section-heading d-inline-block">Fine-grained Emotion Control</h2>
+              <!-- <p class="pre-wrap lead">All speakers are unseen during training</p> -->
+            </div>
+  
+              <div class="divider-custom divider-light">
+              </div>
+              <div class="row">
+                  <div class="col-lg-12 ml-auto" >
+                    <table class="table table-responsive align-content-center" style="background-color: rgba(255, 255, 255, 0.993); border-radius: 20px">
+                      <tr>
+                        <th style="width: 22%"> Target Speaker </th>
+                        <th style="width: 28%"> Prompt</th>
+                        <th style="width: 22%"> Synthesized </th>
+                        <th style="width: 22%">             </th>
+                        <th style="width: 1%">  </th>
+                      </tr>
+                      
+                      <tbody>
+                        <tr>
+                          <td>
+                          <p><strong>8230 </strong></p>
+                            <audio id="player" controls><source src="audio/Real/GT/8230_279154_000024_000007.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                          <p><strong>(Neutral) He speaks in an even, calm tone. </strong></p>
+                          </td>
+                          <td>
+                          <p><strong>Venom </strong></p>
+                            <audio id="player" controls><source src="audio/Zero/promoticon/8230_279154_000019_000002.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                          <p><strong>5105 </strong></p>
+                            <audio id="player" controls><source src="audio/Real/GT/5105_28241_000003_000001.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                          <p><strong>(Angry) He speaks with a tone of indignation, his annoyance evident. </strong></p>
+                          </td>
+                          <td>
+                          <p><strong>Venom </strong></p>
+                            <audio id="player" controls><source src="audio/Zero/promoticon/5105_28241_000025_000001.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                          <p><strong>5683 </strong></p>
+                            <audio id="player" controls><source src="audio/Real/GT/5683_32865_000044_000005.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                          <p><strong>(Happy) Her voice her radiant, reflecting her inner joy. </strong></p>
+                          </td>
+                          <td>
+                          <p><strong>Venom </strong></p>
+                            <audio id="player" controls><source src="audio/Zero/promoticon/5683_32866_000045_000006.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                          <p><strong>237 </strong></p>
+                            <audio id="player" controls><source src="audio/Real/GT/237_126133_000059_000000.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                          <p><strong>(Sad) She conveys her grief in a tone that's quietly sorrowful. </strong></p>
+                          </td>
+                          <td>
+                          <p><strong>Venom </strong></p>
+                            <audio id="player" controls><source src="audio/Zero/promoticon/237_134493_000005_000003.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                          <p><strong>3575 </strong></p>
+                            <audio id="player" controls><source src="audio/Real/GT/3575_170457_000016_000000.wav" type="audio/wav"></audio>
+                          </td>
+                          <td>
+                          <p><strong>(Surprise) She speaks with a quick, high tone, her surprise is clear and unmistakable. </strong></p>
+                          </td>
+                          <td>
+                          <p><strong>Venom </strong></p>
+                            <audio id="player" controls><source src="audio/Zero/promoticon/3575_170457_000046_000002.wav" type="audio/wav"></audio>
+                          </td>
+                        </tr>
+                     </tbody>
+
+                    </table>
+                  </div>
+                </div> 
+            </div>
+        </section>
+
+
+        <div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="js/scripts.js"></script>
+        
+        <!-- Bootstrap slider JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous"></script>
+
+        <!-- slider JS -->
+        <script type="text/javascript">
+        </script>
+    </body>
+</html>
+
+<style>
+
+  .noborder{
+          border: none!important;
+    }
+  .grid-image {
+      display:flex;
+      flex-wrap:wrap;
+      align-items:flex-start;
+      margin:30px 0;
+  }
+  .grid-image img {
+      width:calc(33.333% - 10px);
+      margin:0 15px 15px 0;
+  }
+  .grid-image img:nth-of-type(3n),
+  .grid-image img:last-child {
+      margin-right:0;
+  }
+  @media screen and (max-width:640px){
+    .grid-image img {
+      width:calc(50% - 15px);
+    }
+  }
+  @media screen and (max-width:480px){
+    .grid-image img:nth-of-type(2n) {
+      margin-right:0;
+    }
+    .grid-image img:nth-of-type(3n) {
+      margin-right:15px;
+    }
+  }
+  </style>
