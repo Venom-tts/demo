@@ -7,7 +7,7 @@ Venom
                  a:link { color: black; text-decoration: none;}
                  a:visited { color: black; text-decoration: none;}
                  a:hover { color: blue; text-decoration: underline;}
-             #player {width: 180px;}
+             #player {width: 125px;}
           </style>
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no", user-scalable="yes">
           <meta name="description" content="Venom audio demo page">
@@ -27,7 +27,6 @@ Venom
                 <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#mainNav">Main</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#intro">Abstract</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#emo">Emotion Control</a></li>
                     </ul>
@@ -66,10 +65,10 @@ Venom
             text-align:center;
           }
           tr {
-            font-size: 15pt;
+            font-size: 14pt;
           }
           td {
-            font-size: 13pt;
+            font-size: 11pt;
           }
         </style>
         
@@ -84,20 +83,10 @@ Venom
               </div>
                 <div class="row">
                   <div class="col-lg-12 ml-auto">
-                    <table class="table table-responsive align-content-center" style="background-color: rgba(255, 255, 255, 0.993); border-radius: 20px; width: 130%;">
-                      <!-- <thead><tr>
-                        <th style="width: 10%"> Target Speaker </th>
-                        <th style="width: 28%"> Prompt</th>
-                        <th style="width: 15%"> GT </th>
-                        <th style="width: 15%"> Vocoded </th>
-                        <th style="width: 15%"> Ours </th>
-                        <th style="width: 15%"> Mellotron </th>
-                        <th style="width: 15%"> Fs2+EDM </th>
-                        <th style="width: 1%">  </th>
-                      </tr></thead>     -->
+                    <table class="table table-responsive align-content-center" style="background-color: rgba(255, 255, 255, 0.993); border-radius: 20px; width: 100%;">
                       <thead><tr>
                         <th style="width: 10%"> Target Speaker </th>
-                        <th style="width: 40%"> Prompt</th>
+                        <th style="width: 30%"> Prompt</th>
                         <th style="width: 10%"> Target Speech </th>
                         <th style="width: 10%">    </th>
                         <th style="width: 10%"> Synthesized </th>
@@ -113,7 +102,7 @@ Venom
                             <audio id="player" controls><source src="audio/Spk/MSP-PODCAST_0114_0005.wav" type="audio/wav"></audio>
                           </td>
                           <td>
-                          <p><strong>(Neutral - objective) Envision a voice portrayal of him that sounds objective. </strong></p>
+                          <p><strong>(Neutral - objective)<br>Envision a voice portrayal of him that sounds objective. </strong></p>
                           </td>
                           <td>
                             <p><strong>GT </strong></p>
@@ -143,7 +132,7 @@ Venom
                             <audio id="player" controls><source src="audio/Spk/MSP-PODCAST_3487_0051_0001.wav" type="audio/wav"></audio>
                           </td>
                           <td>
-                          <p><strong>(Happy - jolly) Create a voice prompt of girl articulating jolly. </strong></p>
+                          <p><strong>(Happy - jolly)<br>Create a voice prompt of girl articulating jolly. </strong></p>
                           </td>
                           <td>
                             <p><strong>GT </strong></p>
@@ -173,7 +162,7 @@ Venom
                             <audio id="player" controls><source src="audio/Spk/MSP-PODCAST_0600_0508.wav" type="audio/wav"></audio>
                           </td>
                           <td>
-                          <p><strong>(Happy - delighted) Craft a tone piece of her that embodies delighted. </strong></p>
+                          <p><strong>(Happy - delighted)<br>Craft a tone piece of her that embodies delighted. </strong></p>
                           </td>
                           <td>
                             <p><strong>GT </strong></p>
@@ -203,7 +192,7 @@ Venom
                             <audio id="player" controls><source src="audio/Spk/MSP-PODCAST_2382_0047.wav" type="audio/wav"></audio>
                           </td>
                           <td>
-                          <p><strong>(Angry - anger) Develop a sound sample of woman expressing anger. </strong></p>
+                          <p><strong>(Angry - anger)<br>Develop a sound sample of woman expressing anger. </strong></p>
                           </td>
                           <td>
                             <p><strong>GT </strong></p>
@@ -233,7 +222,7 @@ Venom
                             <audio id="player" controls><source src="audio/Spk/MSP-PODCAST_0133_1137.wav" type="audio/wav"></audio>
                           </td>
                           <td>
-                          <p><strong>(Angry - detonation) Formulate a voice tone of man that carries detonation. </strong></p>
+                          <p><strong>(Angry - detonation)<br>Formulate a voice tone of man that carries detonation. </strong></p>
                           </td>
                           <td>
                             <p><strong>GT </strong></p>
@@ -263,7 +252,7 @@ Venom
                             <audio id="player" controls><source src="audio/Spk/MSP-PODCAST_1960_0116.wav" type="audio/wav"></audio>
                           </td>
                           <td>
-                          <p><strong>(Surprise - stupendous) Develop a sound sample of girl expressing stupendous. </strong></p>
+                          <p><strong>(Surprise - stupendous)<br>Develop a sound sample of girl expressing stupendous. </strong></p>
                           </td>
                           <td>
                             <p><strong>GT </strong></p>
@@ -293,7 +282,7 @@ Venom
                             <audio id="player" controls><source src="audio/Spk/MSP-PODCAST_1829_0802.wav" type="audio/wav"></audio>
                           </td>
                           <td>
-                          <p><strong>(Surprise - amazement) Formulate a voice tone of woman that carries amazement. </strong></p>
+                          <p><strong>(Surprise - amazement)<br>Formulate a voice tone of woman that carries amazement. </strong></p>
                           </td>
                           <td>
                             <p><strong>GT </strong></p>
@@ -323,7 +312,7 @@ Venom
                             <audio id="player" controls><source src="audio/Spk/MSP-PODCAST_2061_0587.wav" type="audio/wav"></audio>
                           </td>
                           <td>
-                          <p><strong>(Sad - mournful) Assemble a sound clip of boy showcasing mournful. </strong></p>
+                          <p><strong>(Sad - mournful)<br>Assemble a sound clip of boy showcasing mournful. </strong></p>
                           </td>
                           <td>
                             <p><strong>GT </strong></p>
@@ -353,7 +342,7 @@ Venom
                             <audio id="player" controls><source src="audio/Spk/MSP-PODCAST_1848_0113.wav" type="audio/wav"></audio>
                           </td>
                           <td>
-                          <p><strong>(Sad - sorrowful) Craft a tone piece of she that embodies sorrowful. </strong></p>
+                          <p><strong>(Sad - sorrowful)<br>Craft a tone piece of she that embodies sorrowful. </strong></p>
                           </td>
                           <td>
                             <p><strong>GT </strong></p>
